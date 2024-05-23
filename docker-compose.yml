@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  trino:
+    image: trinodb/trino:448
+    container_name: trino
+    hostname: trino
+    ports:
+      - "8443:8443"
+    networks:
+      - trino-network
+    volumes:
+      - ./trino/config:/etc/trino
+      - ./trino/extra-config:/etc/extra/trino-config
+    environment:
+      - TRINO_SHARED_SECRET=${TRINO_SHARED_SECRET}
+      - TRINO_HTTPS_KEYSTORE_KEY=${TRINO_HTTPS_KEYSTORE_KEY}
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          "curl -s -o /dev/null -w '%{http_code}' http://localhost:8080/v1/status | grep '200'",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+networks:
+  trino-network:
+    driver: bridge
