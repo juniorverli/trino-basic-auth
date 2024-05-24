@@ -44,15 +44,17 @@ Choose a password for the keystore and set the TRINO_HTTPS_KEYSTORE_KEY variable
 To generate the keystore file, run the following command. Replace changeit with the password you chose earlier, if necessary:
 
 ```
-keytool -genkeypair -alias trino -keyalg RSA -keystore ./extra-config/keystore.jks -storepass changeit -validity 365 -keysize 2048
+keytool -genkeypair -alias trino -keyalg RSA -keystore ./trino/extra-config/keystore.jks -storepass changeit -validity 365 -keysize 2048
 ```
+
+Continue with the keystore creation process, following the instructions provided by your environment or tool. Typically, you can proceed through the steps by accepting the default settings until you reach a point where you are asked to confirm information or an action. At this juncture, when prompted to correctly fill in "Is CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown," respond with "yes."
 
 #### 3.2 Validate the keystore file
 
 To validate the keystore file, run the following command. Replace changeit with the password you chose earlier, if necessary:
 
 ```
-keytool -list -v -keystore ./extra-config/keystore.jks -storepass changeit
+keytool -list -v -keystore ./trino/extra-config/keystore.jks -storepass changeit
 ```
 
 ### 4. Generate the password file
@@ -60,8 +62,8 @@ keytool -list -v -keystore ./extra-config/keystore.jks -storepass changeit
 To create the password file password.db, execute the following commands. You can choose the password for the admin user after executing the commands:
 
 ```
-touch ./extra-config/password.db
-htpasswd -B -C 10 ./extra-config/password.db admin
+touch ./trino/extra-config/password.db
+htpasswd -B -C 10 ./trino/extra-config/password.db admin
 ```
 
 ### 5. Running
