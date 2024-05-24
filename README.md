@@ -55,7 +55,7 @@ To validate the keystore file, run the following command. Replace changeit with 
 keytool -list -v -keystore ./extra-config/keystore.jks -storepass changeit
 ```
 
-### 4. Generate password file
+### 4. Generate the password file
 
 To create the password file password.db, execute the following commands. You can choose the password for the admin user after executing the commands:
 
