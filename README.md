@@ -27,7 +27,7 @@ mv sample.env .env
 
 #### 2.1 TRINO_SHARED_SECRET
 
-To set the TRINO_SHARED_SECRET variable in the .env file, run the following command and copy the output to the variable:
+To set the `TRINO_SHARED_SECRET` variable in the `.env` file, run the following command and copy the output to the variable:
 
 ```
 openssl rand 512 | base64
@@ -35,13 +35,13 @@ openssl rand 512 | base64
 
 #### 2.2 TRINO_HTTPS_KEYSTORE_KEY
 
-Choose a password for the keystore and set the TRINO_HTTPS_KEYSTORE_KEY variable in the .env file. If desired, you can replace changeit with any other password when creating the keystore.
+Choose a password for the keystore and set the `TRINO_HTTPS_KEYSTORE_KEY` variable in the `.env` file. If desired, you can replace `changeit` with any other password when creating the keystore.
 
 
 ### 3. The keystore file
 
 #### 3.1 Generate the keystore file
-To generate the keystore file, run the following command. Replace changeit with the password you chose earlier, if necessary:
+To generate the keystore file, run the following command. Replace `changeit` with the password you chose earlier, if necessary:
 
 ```
 keytool -genkeypair -alias trino -keyalg RSA -keystore ./trino/extra-config/keystore.jks -storepass changeit -validity 365 -keysize 2048
@@ -51,7 +51,7 @@ Continue with the keystore creation process, following the instructions provided
 
 #### 3.2 Validate the keystore file
 
-To validate the keystore file, run the following command. Replace changeit with the password you chose earlier, if necessary:
+To validate the keystore file, run the following command. Replace `changeit` with the password you chose earlier, if necessary:
 
 ```
 keytool -list -v -keystore ./trino/extra-config/keystore.jks -storepass changeit
@@ -59,7 +59,7 @@ keytool -list -v -keystore ./trino/extra-config/keystore.jks -storepass changeit
 
 ### 4. Generate the password file
 
-To create the password file password.db, execute the following commands. You can choose the password for the admin user after executing the commands:
+To create the password file `password.db`, execute the following commands. You can choose the password for the `admin` user after executing the commands:
 
 ```
 touch ./trino/extra-config/password.db
@@ -88,8 +88,9 @@ After executing this command, use the chosen password when prompted.
 
 #### 5.3 DBeaver
 
-For DBeaver, use the following JDBC URL: jdbc:trino://localhost:8443?SSL=true&SSLVerification=NONE. Enter the username "admin" and the chosen password.
+For DBeaver, use the following JDBC URL: `jdbc:trino://localhost:8443?SSL=true&SSLVerification=NONE`.
+Enter the username `admin` and the chosen password.
 
 #### 5.4 Web UI - Query history
 
-Additionally, if accessing via a web browser at https://localhost:8443, using the username "admin" and the chosen password will grant access to the query history.
+Additionally, if accessing via a web browser at `https://localhost:8443`, using the username `admin` and the chosen password will grant access to the query history.
