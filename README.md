@@ -47,7 +47,7 @@ To generate the keystore file, run the following command. Replace changeit with 
 keytool -genkeypair -alias trino -keyalg RSA -keystore ./trino/extra-config/keystore.jks -storepass changeit -validity 365 -keysize 2048
 ```
 
-Continue with the keystore creation process, following the instructions provided by your environment or tool. Typically, you can proceed through the steps by accepting the default settings until you reach a point where you are asked to confirm information or an action. At this juncture, when prompted to correctly fill in "Is CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown," respond with "yes."
+Continue with the keystore creation process, following the instructions provided by your environment or tool. Typically, you can proceed through the steps by accepting the default settings until you reach a point where you are asked to confirm information or an action. At this juncture, when prompted to correctly fill in `Is CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown,` respond with `yes`.
 
 #### 3.2 Validate the keystore file
 
